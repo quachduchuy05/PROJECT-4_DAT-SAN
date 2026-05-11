@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách sân bóng</title>
+</head>
+<body>
+
+<h1>DANH SÁCH SÂN BÓNG</h1>
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
+}
+
+body{
+background: #f4f7fb;
+padding: 30px;
+}
+
+.container{
+width: 90%;
+margin: auto;
+}
+
+h1{
+text-align: center;
+color: #0d6efd;
+margin-bottom: 30px;
+font-size: 40px;
+}
+
+table{
+width: 100%;
+border-collapse: collapse;
+background: white;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+table th{
+background: #0d6efd;
+color: white;
+padding: 15px;
+font-size: 18px;
+}
+
+table td{
+padding: 15px;
+text-align: center;
+border-bottom: 1px solid #ddd;
+}
+
+table tr:hover{
+background: #f1f1f1;
+transition: 0.3s;
+}
+
+a{
+display: inline-block;
+margin-top: 20px;
+padding: 12px 20px;
+background: #198754;
+color: white;
+text-decoration: none;
+border-radius: 8px;
+transition: 0.3s;
+}
+
+a:hover{
+background: #146c43;
+}
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Tên sân</th>
+        <th>Loại sân</th>
+        <th>Giá</th>
+    </tr>
+
+    <tr th:each="s : ${danhsach}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.tenSan}"></td>
+        <td th:text="${s.loaiSan}"></td>
+        <td th:text="${s.gia}"></td>
+    </tr>
+
+</table>
+
+<br>
+
+<a href="/thoigian">Xem thời gian sử dụng</a>
+
+</body>
+</html>

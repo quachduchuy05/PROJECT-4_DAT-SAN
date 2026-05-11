@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quản trị sân bóng</title>
+
+    <link rel="stylesheet" th:href="@{/admin.css}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>TRANG QUẢN TRỊ SÂN BÓNG</h1>
+
+    <div class="top-button">
+        <button>+ Thêm sân bóng</button>
+    </div>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Tên sân</th>
+            <th>Loại sân</th>
+            <th>Giá</th>
+            <th>Hành động</th>
+        </tr>
+
+        <tr th:each="s : ${danhsach}">
+
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.tenSan}"></td>
+            <td th:text="${s.loaiSan}"></td>
+            <td th:text="${s.gia} + ' VNĐ'"></td>
+
+            <td>
+                <button class="edit">Sửa</button>
+                <button class="delete">Xóa</button>
+            </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
