@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách sân bóng</title>
+</head>
+<body>
+
+<h1>DANH SÁCH SÂN BÓNG</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Tên sân</th>
+        <th>Loại sân</th>
+        <th>Giá</th>
+    </tr>
+
+    <tr th:each="s : ${danhsach}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.tenSan}"></td>
+        <td th:text="${s.loaiSan}"></td>
+        <td th:text="${s.gia}"></td>
+    </tr>
+
+</table>
+
+<br>
+
+<a href="/thoigian">Xem thời gian sử dụng</a>
+
+</body>
+</html>
