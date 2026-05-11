@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Football Booking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #16a34a;
+            --primary-dark: #15803d;
+            --secondary: #22c55e;
+            --bg: #f1f5f9;
+            --text: #0f172a;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 18px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            position: relative;
+            height: 90vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
+        }
+
+        .hero button:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+        }
+
+        .field-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .field-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.35s ease;
+        }
+
+        .field-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .field-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .field-content {
+            padding: 22px;
+        }
+
+        .field-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .field-top h3 {
+            font-size: 1.4rem;
+        }
+
+        .price {
+            background: #dcfce7;
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .field-info {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .field-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .book-btn {
+            width: 100%;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            opacity: 0.92;
+        }
+
+        .booking-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 999;
+        }
+
+        .booking-box {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 22px;
+            padding: 35px;
+            position: relative;
+            animation: popup 0.3s ease;
+        }
+
+        @keyframes popup {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .booking-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .booking-box p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dbe2ea;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(34,197,94,0.15);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hero">
+        <h1>⚽ Đặt Sân Bóng Online</h1>
+        <p>
+            Hệ thống đặt sân bóng hiện đại, nhanh chóng và chuyên nghiệp.
+            Chọn sân yêu thích và đặt lịch chỉ trong vài giây.
+        </p>
+
+        <button onclick="scrollToFields()">Đặt Sân Ngay</button>
+    </div>
+</header>
+
+<section class="container" id="fieldsSection">
+
+    <div class="section-title">
+        <h2>Danh Sách Sân Bóng</h2>
+        <p>Lựa chọn sân chất lượng cao phù hợp với đội của bạn</p>
+    </div>
+
+    <div class="field-list" id="fieldList"></div>
+
+</section>
+
+<div class="booking-modal" id="bookingModal">
+
+    <div class="booking-box">
+
+        <span class="close-btn" onclick="closeModal()">×</span>
+
+        <h2>Đặt Sân</h2>
+        <p id="selectedField"></p>
+
+        <div class="form-group">
+            <label>Họ và tên</label>
+            <input type="text" id="name" placeholder="Nhập họ tên">
+        </div>
+
+        <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="text" id="phone" placeholder="Nhập số điện thoại">
+        </div>
+
+        <div class="form-group">
+            <label>Ngày đặt sân</label>
+            <input type="date" id="date">
+        </div>
+
+        <div class="form-group">
+            <label>Khung giờ</label>
+            <select id="time">
+                <option>17:00 - 18:00</option>
+                <option>18:00 - 19:00</option>
+                <option>19:00 - 20:00</option>
+                <option>20:00 - 21:00</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="submitBooking()">
+            Xác Nhận Đặt Sân
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Pro Football Booking | Thiết kế chuyên nghiệp</p>
+</footer>
+
+<script>
+
+    const fields = [
+        {
+            name: 'Sân Premier Arena',
+            price: '350.000đ/giờ',
+            size: '7 người',
+            rating: '⭐ 4.9',
+            img: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200&auto=format&fit=crop',
+            desc: 'Mặt cỏ chất lượng cao, hệ thống đèn LED hiện đại và khu vực nghỉ tiện nghi.'
+        },
+        {
+            name: 'Sân Champion Field',
+            price: '300.000đ/giờ',
+            size: '5 người',
+            rating: '⭐ 4.8',
+            img: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop',
+            desc: 'Không gian chuyên nghiệp phù hợp cho các trận đấu giao hữu và giải đấu nhỏ.'
+        },
+        {
+            name: 'Sân Victory Stadium',
+            price: '250.000đ/giờ',
+            size: '5 người',
+            rating: '⭐ 4.7',
+            img: 'https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=1200&auto=format&fit=crop',
+            desc: 'Giá tốt, vị trí thuận tiện và hỗ trợ đặt sân trực tuyến nhanh chóng.'
+        }
+    ];
+
+    const fieldList = document.getElementById('fieldList');
+    const bookingModal = document.getElementById('bookingModal');
+    const selectedFieldText = document.getElementById('selectedField');
+
+    let selectedField = '';
+
+    function renderFields() {
+
+        fields.forEach(field => {
+
+            const card = document.createElement('div');
+            card.className = 'field-card';
+
+            card.innerHTML = `
+
+                <img src="${field.img}" alt="${field.name}">
+
+                <div class="field-content">
+
+                    <div class="field-top">
+                        <h3>${field.name}</h3>
+                        <span class="price">${field.price}</span>
+                    </div>
+
+                    <p class="field-info">${field.desc}</p>
+
+                    <div class="field-meta">
+                        <span>👥 ${field.size}</span>
+                        <span>${field.rating}</span>
+                    </div>
+
+                    <button class="book-btn" onclick="bookField('${field.name}')">
+                        Đặt Sân Ngay
+                    </button>
+
+                </div>
+            `;
+
+            fieldList.appendChild(card);
+        });
+    }
+
+    function bookField(name) {
+
+        selectedField = name;
+
+        selectedFieldText.innerHTML = `Bạn đang đặt: <b>${name}</b>`;
+
+        bookingModal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        bookingModal.style.display = 'none';
+    }
+
+    function submitBooking() {
+
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+
+        if (!name || !phone || !date) {
+            alert('Vui lòng nhập đầy đủ thông tin!');
+            return;
+        }
+
+        if (phone.length < 9) {
+            alert('Số điện thoại không hợp lệ!');
+            return;
+        }
+
+        alert(
+            `✅ Đặt sân thành công!\n\n` +
+            `⚽ Sân: ${selectedField}\n` +
+            `📅 Ngày: ${date}\n` +
+            `⏰ Giờ: ${time}\n` +
+            `👤 Người đặt: ${name}`
+        );
+
+        closeModal();
+
+        document.getElementById('name').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('date').value = '';
+    }
+
+    function scrollToFields() {
+        document.getElementById('fieldsSection').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    window.onclick = function(e) {
+        if (e.target == bookingModal) {
+            closeModal();
+        }
+    }
+
+    renderFields();
+
+</script>
+
+</body>
+</html>
+```
+
