@@ -1,304 +1,323 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đặt Sân THDB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Football Booking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <h1>QUẢN LÝ SÂN BÓNG</h1>
+
+    <br>
+
+    <a href="/sanbong">Danh sách sân bóng</a>
+
+    <br><br>
+
+    <a href="/login">Đăng nhập admin</a>
 
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: Arial, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            background:#f5f7fb;
-            color:#222;
+        :root {
+            --primary: #16a34a;
+            --primary-dark: #15803d;
+            --secondary: #22c55e;
+            --bg: #f1f5f9;
+            --text: #0f172a;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 18px;
         }
 
-        .topbar{
-            background:#0b8f3a;
-            color:white;
-            padding:10px 8%;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            font-size:14px;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        .navbar{
-            background:white;
-            padding:16px 8%;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            box-shadow:0 4px 18px rgba(0,0,0,0.08);
-            position:sticky;
-            top:0;
-            z-index:100;
-        }
-
-        .logo{
-            font-size:28px;
-            font-weight:bold;
-            color:#0b8f3a;
-        }
-
-        .logo span{
-            color:#f59e0b;
-        }
-
-        .menu a{
-            text-decoration:none;
-            color:#333;
-            margin-left:24px;
-            font-weight:600;
-            font-size:15px;
-        }
-
-        .menu a:hover{
-            color:#0b8f3a;
-        }
-
-        .login-btn{
-            background:#0b8f3a;
-            color:white !important;
-            padding:10px 18px;
-            border-radius:25px;
-        }
-
-        .hero{
-            min-height:520px;
+        header {
+            position: relative;
+            height: 90vh;
             background:
-            linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-            url("https://images.unsplash.com/photo-1459865264687-595d652de67e?q=80&w=1600&auto=format&fit=crop")
-            center/cover no-repeat;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            color:white;
-            padding:40px 8%;
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
         }
 
-        .hero-content h1{
-            font-size:48px;
-            margin-bottom:15px;
+        .hero {
+            max-width: 800px;
         }
 
-        .hero-content p{
-            font-size:18px;
-            margin-bottom:30px;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        .search-box{
-            background:white;
-            width:100%;
-            max-width:950px;
-            margin:-55px auto 60px;
-            padding:25px;
-            border-radius:18px;
-            box-shadow:0 12px 35px rgba(0,0,0,0.15);
-            display:grid;
-            grid-template-columns: 1fr 2fr auto;
-            gap:15px;
-            position:relative;
-            z-index:10;
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
         }
 
-        .search-box select,
-        .search-box input{
-            width:100%;
-            padding:15px;
-            border:1px solid #ddd;
-            border-radius:12px;
-            outline:none;
-            font-size:15px;
+        .hero button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
         }
 
-        .search-box select:focus,
-        .search-box input:focus{
-            border-color:#0b8f3a;
-            box-shadow:0 0 0 3px rgba(11,143,58,0.15);
+        .hero button:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
         }
 
-        .search-box button{
-            background:#f59e0b;
-            color:white;
-            border:none;
-            padding:0 30px;
-            border-radius:12px;
-            font-size:16px;
-            font-weight:bold;
-            cursor:pointer;
-            transition:0.3s;
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+            padding: 80px 0;
         }
 
-        .search-box button:hover{
-            background:#d97706;
-            transform:translateY(-2px);
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .container{
-            width:86%;
-            margin:auto;
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        .section-title{
-            text-align:center;
-            margin-bottom:35px;
+        .section-title p {
+            color: var(--gray);
         }
 
-        .section-title h2{
-            font-size:34px;
-            color:#0b8f3a;
-            margin-bottom:10px;
+        .field-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .section-title p{
-            color:#666;
+        .field-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.35s ease;
         }
 
-        .field-list{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-            gap:28px;
+        .field-card:hover {
+            transform: translateY(-10px);
         }
 
-        .field-card{
-            background:white;
-            border-radius:18px;
-            overflow:hidden;
-            box-shadow:0 8px 25px rgba(0,0,0,0.08);
-            transition:0.3s;
+        .field-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
         }
 
-        .field-card:hover{
-            transform:translateY(-8px);
-            box-shadow:0 14px 32px rgba(0,0,0,0.14);
+        .field-content {
+            padding: 22px;
         }
 
-        .field-card img{
-            width:100%;
-            height:220px;
-            object-fit:cover;
+        .field-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
         }
 
-        .field-content{
-            padding:20px;
+        .field-top h3 {
+            font-size: 1.4rem;
         }
 
-        .field-content h3{
-            font-size:22px;
-            margin-bottom:10px;
-            color:#111;
+        .price {
+            background: #dcfce7;
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .field-content p{
-            color:#666;
-            margin-bottom:14px;
-            line-height:1.5;
+        .field-info {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
-        .info{
-            display:flex;
-            justify-content:space-between;
-            margin-bottom:18px;
-            font-size:14px;
-            color:#444;
+        .field-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: #475569;
         }
 
-        .price{
-            color:#0b8f3a;
-            font-weight:bold;
+        .book-btn {
+            width: 100%;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .book-btn{
-            width:100%;
-            padding:14px;
-            background:#0b8f3a;
-            color:white;
-            border:none;
-            border-radius:12px;
-            font-size:16px;
-            font-weight:bold;
-            cursor:pointer;
-            transition:0.3s;
+        .book-btn:hover {
+            opacity: 0.92;
         }
 
-        .book-btn:hover{
-            background:#08752f;
+        .booking-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 999;
         }
 
-        .features{
-            margin-top:70px;
-            padding:60px 8%;
-            background:white;
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
+        .booking-box {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 22px;
+            padding: 35px;
+            position: relative;
+            animation: popup 0.3s ease;
         }
 
-        .feature-item{
-            text-align:center;
-            padding:25px;
-            border-radius:18px;
-            background:#f8fafc;
+        @keyframes popup {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        .feature-item h3{
-            color:#0b8f3a;
-            margin-bottom:10px;
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
         }
 
-        footer{
-            background:#111827;
-            color:white;
-            text-align:center;
-            padding:28px;
-            margin-top:50px;
+        .booking-box h2 {
+            margin-bottom: 10px;
         }
 
-        @media(max-width:768px){
-            .navbar{
-                flex-direction:column;
-                gap:15px;
+        .booking-box p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dbe2ea;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(34,197,94,0.15);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 {
+                font-size: 2.7rem;
             }
 
-            .menu{
-                text-align:center;
+            .hero p {
+                font-size: 1rem;
             }
 
-            .menu a{
-                display:inline-block;
-                margin:8px;
-            }
-
-            .hero-content h1{
-                font-size:34px;
-            }
-
-            .search-box{
-                grid-template-columns:1fr;
-                margin-top:-40px;
-            }
-
-            .search-box button{
-                padding:15px;
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
-
 <body>
 
-<div class="topbar">
-    <div>Hotline: 0399.393.939</div>
-    <div>Hệ thống đặt sân thể thao trực tuyến</div>
-</div>
+<header>
+    <div class="hero">
+        <h1>⚽ Đặt Sân Bóng Online</h1>
+        <p>
+            Hệ thống đặt sân bóng hiện đại, nhanh chóng và chuyên nghiệp.
+            Chọn sân yêu thích và đặt lịch chỉ trong vài giây.
+        </p>
 
+<<<<<<< HEAD
 <div class="navbar">
     <div class="logo">Đặt Sân <span>THDB</span></div>
 
@@ -310,16 +329,15 @@
         <a href="#">Cầu lông</a>
         <a href="#">Pickleball</a>
         <a href="/login" class="login-btn">Đăng nhập</a>
+=======
+        <button onclick="scrollToFields()">Đặt Sân Ngay</button>
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
     </div>
-</div>
+</header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Tìm kiếm sân bãi nhanh chóng</h1>
-        <p>Dễ dàng tìm sân, xem thông tin và đặt lịch online chỉ trong vài giây</p>
-    </div>
-</section>
+<section class="container" id="fieldsSection">
 
+<<<<<<< HEAD
 <div class="search-box">
     <select id="typeFilter">
         <option value="">Lọc theo loại sân</option>
@@ -335,120 +353,208 @@
 </div>
 
 <section class="container">
+=======
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
     <div class="section-title">
-        <h2>Danh sách sân bãi</h2>
-        <p>Lựa chọn sân phù hợp với nhu cầu của bạn</p>
+        <h2>Danh Sách Sân Bóng</h2>
+        <p>Lựa chọn sân chất lượng cao phù hợp với đội của bạn</p>
     </div>
 
     <div class="field-list" id="fieldList"></div>
+
 </section>
 
-<section class="features">
-    <div class="feature-item">
-        <h3>Tìm kiếm vị trí sân</h3>
-        <p>Dữ liệu sân đấu được cập nhật thường xuyên, dễ dàng tìm theo khu vực.</p>
+<div class="booking-modal" id="bookingModal">
+
+    <div class="booking-box">
+
+        <span class="close-btn" onclick="closeModal()">×</span>
+
+        <h2>Đặt Sân</h2>
+        <p id="selectedField"></p>
+
+        <div class="form-group">
+            <label>Họ và tên</label>
+            <input type="text" id="name" placeholder="Nhập họ tên">
+        </div>
+
+        <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="text" id="phone" placeholder="Nhập số điện thoại">
+        </div>
+
+        <div class="form-group">
+            <label>Ngày đặt sân</label>
+            <input type="date" id="date">
+        </div>
+
+        <div class="form-group">
+            <label>Khung giờ</label>
+            <select id="time">
+                <option>17:00 - 18:00</option>
+                <option>18:00 - 19:00</option>
+                <option>19:00 - 20:00</option>
+                <option>20:00 - 21:00</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="submitBooking()">
+            Xác Nhận Đặt Sân
+        </button>
+
     </div>
 
-    <div class="feature-item">
-        <h3>Đặt lịch online</h3>
-        <p>Không cần gọi điện, có thể đặt sân trực tiếp trên hệ thống.</p>
-    </div>
+</div>
 
-    <div class="feature-item">
-        <h3>Quản lý nhanh chóng</h3>
-        <p>Hỗ trợ chủ sân quản lý lịch đặt, thông tin sân và khách hàng.</p>
-    </div>
-</section>
-
+<<<<<<< HEAD
 <div th:replace="footer :: footer"></div>
+=======
+<footer>
+    <p>© 2026 Pro Football Booking | Thiết kế chuyên nghiệp</p>
+</footer>
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
 
 <script>
+
     const fields = [
         {
-            name: "Sân của báu",
-            type: "Bóng đá",
-            address: "Cầu Giấy, Hà Nội",
-            price: "350.000đ/giờ",
-            img: "/images/san1.jpg"
+            name: 'Sân Premier Arena',
+            price: '350.000đ/giờ',
+            size: '7 người',
+            rating: '⭐ 4.9',
+            img: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200&auto=format&fit=crop',
+            desc: 'Mặt cỏ chất lượng cao, hệ thống đèn LED hiện đại và khu vực nghỉ tiện nghi.'
         },
         {
+<<<<<<< HEAD
             name: "Sân cua tuyên",
             type: "bong",
             address: "Ba Đình, Hà Nội",
             price: "280.000đ/giờ",
             img: "/images/san2.jpg"
+=======
+            name: 'Sân Champion Field',
+            price: '300.000đ/giờ',
+            size: '5 người',
+            rating: '⭐ 4.8',
+            img: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop',
+            desc: 'Không gian chuyên nghiệp phù hợp cho các trận đấu giao hữu và giải đấu nhỏ.'
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
         },
         {
-            name: "Sân của huy",
-            type: "bong",
-            address: "Đống Đa, Hà Nội",
-            price: "120.000đ/giờ",
-            img: "/images/san3.jpg"
-        },
-        {
-            name: "Sân của dũng",
-            type: "bong",
-            address: "Thanh Xuân, Hà Nội",
-            price: "200.000đ/giờ",
-            img: "/images/san4.png"
+            name: 'Sân Victory Stadium',
+            price: '250.000đ/giờ',
+            size: '5 người',
+            rating: '⭐ 4.7',
+            img: 'https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=1200&auto=format&fit=crop',
+            desc: 'Giá tốt, vị trí thuận tiện và hỗ trợ đặt sân trực tuyến nhanh chóng.'
         }
     ];
 
-    const fieldList = document.getElementById("fieldList");
+    const fieldList = document.getElementById('fieldList');
+    const bookingModal = document.getElementById('bookingModal');
+    const selectedFieldText = document.getElementById('selectedField');
 
-    function renderFields(data){
-        fieldList.innerHTML = "";
+    let selectedField = '';
 
-        if(data.length === 0){
-            fieldList.innerHTML = "<p>Không tìm thấy sân phù hợp.</p>";
+    function renderFields() {
+
+        fields.forEach(field => {
+
+            const card = document.createElement('div');
+            card.className = 'field-card';
+
+            card.innerHTML = `
+
+                <img src="${field.img}" alt="${field.name}">
+
+                <div class="field-content">
+
+                    <div class="field-top">
+                        <h3>${field.name}</h3>
+                        <span class="price">${field.price}</span>
+                    </div>
+
+                    <p class="field-info">${field.desc}</p>
+
+                    <div class="field-meta">
+                        <span>👥 ${field.size}</span>
+                        <span>${field.rating}</span>
+                    </div>
+
+                    <button class="book-btn" onclick="bookField('${field.name}')">
+                        Đặt Sân Ngay
+                    </button>
+
+                </div>
+            `;
+
+            fieldList.appendChild(card);
+        });
+    }
+
+    function bookField(name) {
+
+        selectedField = name;
+
+        selectedFieldText.innerHTML = `Bạn đang đặt: <b>${name}</b>`;
+
+        bookingModal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        bookingModal.style.display = 'none';
+    }
+
+    function submitBooking() {
+
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+
+        if (!name || !phone || !date) {
+            alert('Vui lòng nhập đầy đủ thông tin!');
             return;
         }
 
-        data.forEach(field => {
-            fieldList.innerHTML += `
-                <div class="field-card">
-                    <img src="${field.img}" alt="${field.name}">
+        if (phone.length < 9) {
+            alert('Số điện thoại không hợp lệ!');
+            return;
+        }
 
-                    <div class="field-content">
-                        <h3>${field.name}</h3>
-                        <p>${field.address}</p>
+        alert(
+            `✅ Đặt sân thành công!\n\n` +
+            `⚽ Sân: ${selectedField}\n` +
+            `📅 Ngày: ${date}\n` +
+            `⏰ Giờ: ${time}\n` +
+            `👤 Người đặt: ${name}`
+        );
 
-                        <div class="info">
-                            <span>${field.type}</span>
-                            <span class="price">${field.price}</span>
-                        </div>
+        closeModal();
 
-                        <button class="book-btn" onclick="alert('Bạn đã chọn ${field.name}')">
-                            Đặt sân ngay
-                        </button>
-                    </div>
-                </div>
-            `;
+        document.getElementById('name').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('date').value = '';
+    }
+
+    function scrollToFields() {
+        document.getElementById('fieldsSection').scrollIntoView({
+            behavior: 'smooth'
         });
     }
 
-    function searchFields(){
-        const keyword = document.getElementById("searchInput").value.toLowerCase();
-        const type = document.getElementById("typeFilter").value;
-
-        const result = fields.filter(field => {
-            const matchKeyword =
-                field.name.toLowerCase().includes(keyword) ||
-                field.address.toLowerCase().includes(keyword);
-
-            const matchType = type === "" || field.type === type;
-
-            return matchKeyword && matchType;
-        });
-
-        renderFields(result);
+    window.onclick = function(e) {
+        if (e.target == bookingModal) {
+            closeModal();
+        }
     }
 
-    document.getElementById("searchInput").addEventListener("keyup", searchFields);
-    document.getElementById("typeFilter").addEventListener("change", searchFields);
+    renderFields();
 
-    renderFields(fields);
 </script>
 
 </body>
 </html>
+```
+

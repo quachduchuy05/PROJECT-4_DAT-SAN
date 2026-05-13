@@ -3,10 +3,14 @@
 
 <head>
 
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Đăng nhập </title>
+=======
+    <title>Đăng nhập</title>
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
 
     <link rel="stylesheet" th:href="@{/login.css}">
 
@@ -14,21 +18,29 @@
 
 <body>
 
-<div class="overlay"></div>
+<div class="login-box">
 
-<div class="login-container">
+    <h1>LOGIN ADMIN</h1>
 
-    <div class="login-left">
+    <form action="/login" method="post">
 
-        <div class="content">
+        <input type="text"
+               name="username"
+               placeholder="Nhập username">
 
+<<<<<<< HEAD
             <h1>⚽ ĐẶT SÂN THDB</h1>
+=======
+        <input type="password"
+               name="password"
+               placeholder="Nhập password">
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
 
-            <p>
-                Hệ thống quản lý sân bóng hiện đại,
-                đặt sân nhanh chóng và chuyên nghiệp.
-            </p>
+        <button type="submit">
+            Đăng nhập
+        </button>
 
+<<<<<<< HEAD
         </div>
 
     </div>
@@ -66,6 +78,9 @@
         </div>
 
     </div>
+=======
+    </form>
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
 
 </div>
 

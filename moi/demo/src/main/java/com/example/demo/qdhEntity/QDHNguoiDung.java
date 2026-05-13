@@ -10,6 +10,7 @@ public class QDHNguoiDung {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     private String hoTen;
 
     private String email;
@@ -19,6 +20,21 @@ public class QDHNguoiDung {
     private String soDienThoai;
 
     private String vaiTro;
+=======
+    private String ho_ten;
+
+    private String email;
+
+    private String so_dien_thoai;
+
+    private String mat_khau;
+
+    private String anh_dai_dien;
+
+    private String vai_tro;
+
+    private String trang_thai;
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
 
     public Long getId() {
         return id;
@@ -28,12 +44,21 @@ public class QDHNguoiDung {
         this.id = id;
     }
 
+<<<<<<< HEAD
     public String getHoTen() {
         return hoTen;
     }
 
     public void setHoTen(String hoTen) {
         this.hoTen = hoTen;
+=======
+    public String getHo_ten() {
+        return ho_ten;
+    }
+
+    public void setHo_ten(String ho_ten) {
+        this.ho_ten = ho_ten;
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
     }
 
     public String getEmail() {
@@ -44,6 +69,17 @@ public class QDHNguoiDung {
         this.email = email;
     }
 
+<<<<<<< HEAD
+=======
+    public String getSo_dien_thoai() {
+        return so_dien_thoai;
+    }
+
+    public void setSo_dien_thoai(String so_dien_thoai) {
+        this.so_dien_thoai = so_dien_thoai;
+    }
+
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
     public String getMat_khau() {
         return mat_khau;
     }
@@ -52,6 +88,7 @@ public class QDHNguoiDung {
         this.mat_khau = mat_khau;
     }
 
+<<<<<<< HEAD
     public String getSoDienThoai() {
         return soDienThoai;
     }
@@ -66,5 +103,29 @@ public class QDHNguoiDung {
 
     public void setVaiTro(String vaiTro) {
         this.vaiTro = vaiTro;
+=======
+    public String getAnh_dai_dien() {
+        return anh_dai_dien;
+    }
+
+    public void setAnh_dai_dien(String anh_dai_dien) {
+        this.anh_dai_dien = anh_dai_dien;
+    }
+
+    public String getVai_tro() {
+        return vai_tro;
+    }
+
+    public void setVai_tro(String vai_tro) {
+        this.vai_tro = vai_tro;
+    }
+
+    public String getTrang_thai() {
+        return trang_thai;
+    }
+
+    public void setTrang_thai(String trang_thai) {
+        this.trang_thai = trang_thai;
+>>>>>>> a7dbee490621208c705553c8ab89ae44abf03cc7
     }
 }
