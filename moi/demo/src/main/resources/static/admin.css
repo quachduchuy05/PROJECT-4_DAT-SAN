@@ -77,3 +77,83 @@ table tr:hover{
     border-radius:6px;
     cursor:pointer;
 }
+.footer{
+    background:#0f172a;
+    color:white;
+    margin-top:80px;
+}
+
+.footer-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    padding:60px 0;
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-box h2{
+    color:#22c55e;
+    margin-bottom:18px;
+    font-size:30px;
+}
+
+.footer-box h3{
+    margin-bottom:20px;
+    color:#facc15;
+}
+
+.footer-box p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+.footer-box a{
+    display:block;
+    text-decoration:none;
+    color:#cbd5e1;
+    margin-bottom:12px;
+    transition:0.3s;
+}
+
+.footer-box a:hover{
+    color:#22c55e;
+    transform:translateX(5px);
+}
+
+.socials{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.socials a{
+    background:#1e293b;
+    padding:10px 16px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.socials a:hover{
+    background:#22c55e;
+    color:white;
+}
+
+.footer-bottom{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#94a3b8;
+    font-size:14px;
+}
+
+@media(max-width:768px){
+
+    .footer-container{
+        padding:45px 0;
+    }
+
+}

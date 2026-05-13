@@ -306,8 +306,9 @@
         <a href="/">Trang chủ</a>
         <a href="/sanbong">Danh sách sân</a>
         <a href="#">Bóng đá</a>
-        <a href="#">sân 5</a>
-        <a href="#">sân 7</a>
+        <a href="#">Tennis</a>
+        <a href="#">Cầu lông</a>
+        <a href="#">Pickleball</a>
         <a href="/login" class="login-btn">Đăng nhập</a>
     </div>
 </div>
@@ -323,9 +324,9 @@
     <select id="typeFilter">
         <option value="">Lọc theo loại sân</option>
         <option value="Bóng đá">Bóng đá</option>
-        <option value="Tennis">sân 11</option>
-        <option value="Cầu lông">sân 7</option>
-        <option value="Pickleball"> sân 5</option>
+        <option value="Tennis">Tennis</option>
+        <option value="Cầu lông">Cầu lông</option>
+        <option value="Pickleball"> Pickleball </option>
     </select>
 
     <input type="text" id="searchInput" placeholder="Nhập tên sân hoặc địa chỉ để tìm kiếm...">
@@ -359,9 +360,7 @@
     </div>
 </section>
 
-<footer>
-    © 2026 Đặt Sân 247 | chỉ có thể đá bay thách twhc
-</footer>
+<div th:replace="footer :: footer"></div>
 
 <script>
     const fields = [
@@ -373,7 +372,7 @@
             img: "/images/san1.jpg"
         },
         {
-            name: "Sân cu tuyên",
+            name: "Sân cua tuyên",
             type: "bong",
             address: "Ba Đình, Hà Nội",
             price: "280.000đ/giờ",
